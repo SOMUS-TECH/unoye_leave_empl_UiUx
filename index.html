@@ -63,6 +63,33 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="assets/js/config.js"></script>
+
+    <script>
+      var enc = "";
+         function loaddata() {
+ 
+             var dataobject = {};
+             dataobject.email = "1";
+ 
+             $.ajax({
+                 url: "stafflogin.aspx/get_link",
+                 type: 'POST',
+                 data: JSON.stringify(dataobject),
+                 contentType: "application/json;charset=utf-8",
+                 success: function (objwithd) {				
+                     $.each(objwithd.d, function (index, obj) {   if(enc.length < 1){enc = obj.link.split("=")[1];} });
+                     $('#loaderGif').hide();						
+                     $('#dynamicMenu').css("display","block");			
+                 },
+                 error: function () {
+                 },
+             });
+         }
+ 
+         $(document).ready(function () {
+             loaddata();
+         });
+     </script>
   </head>
 
   <body>
@@ -96,47 +123,111 @@
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
             <li class="menu-item active">
-              <a href="index.html" class="menu-link">
+              <a href="#" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
               </a>
             </li>
 
             <li class="menu-item">
-              <a href="index.html" class="menu-link">
+              <a href="#" onclick="window.open('http://processflow.unoye.com/exp/continue.aspx?emp='+enc , '_blank');" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-detail"></i>
-                <div data-i18n="Analytics">Group News</div>
+                <div data-i18n="Analytics">Work Expense</div>
               </a>
             </li>
-
 
             <li class="menu-item">
-              <a href="index.html" class="menu-link">
+              <a href="" onclick="window.open('http://admin.unoye.com/admin/?emp='+enc , '_blank');"  class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
-                <div data-i18n="Analytics">Company Resources</div>
+                <div data-i18n="Analytics">Admin</div>
               </a>
             </li>
 
             <li class="menu-item ">
-              <a href="index.html" class="menu-link">
+              <a href="" onclick="window.open('http://hr.unoye.com/talmgt/continue.aspx?emp='+enc , '_blank');" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-copy"></i>
-                <div data-i18n="Analytics">Events Calendar</div>
+                <div data-i18n="Analytics">Talent</div>
               </a>
             </li>
 
 
             <li class="menu-item ">
-              <a href="index.html" class="menu-link">
+              <a href="" onclick="window.open('http://hr.unoye.com/emp/continue.aspx?emp='+enc , '_blank');" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-detail"></i>
-                <div data-i18n="Analytics">Knowledge Center</div>
+                <div data-i18n="Analytics">Employee Info</div>
               </a>
             </li>
 
-            
-        
+            <li class="menu-item ">
+              <a href="" onclick="window.open('http://hr.unoye.com/lev/continue.aspx?emp='+enc , '_blank');" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-detail"></i>
+                <div data-i18n="Analytics">Leave</div>
+              </a>
+            </li>
+
+            <li class="menu-item ">
+              <a href="" onclick="window.open('http://payroll.unoye.com/continue.aspx?emp='+enc , '_blank');" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-detail"></i>
+                <div data-i18n="Analytics">Payroll</div>
+              </a>
+            </li>
+
+
+            <li class="menu-item ">
+              <a href="" onclick="window.open('http://processflow.unoye.com/flowch/continue.aspx?emp='+enc , '_blank');" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-detail"></i>
+                <div data-i18n="Analytics">Docflow Settings</div>
+              </a>
+            </li>
+
+
+            <li class="menu-item ">
+              <a href="" onclick="window.open('http://admin.unoye.com/audit/continue.aspx?emp='+enc , '_blank');" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-detail"></i>
+                <div data-i18n="Analytics">Audit Trail</div>
+              </a>
+            </li>
           
 
-          
+            <li class="menu-item ">
+              <a href="" onclick="window.open('http://processflow.unoye.com/bd/continue.aspx?emp='+enc , '_blank');" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-detail"></i>
+                <div data-i18n="Analytics">Budget</div>
+              </a>
+            </li>
+
+
+            <li class="menu-item ">
+              <a href="" onclick="window.open('http://admin.unoye.com/memo/continue.aspx?emp='+enc , '_blank');"  class="menu-link">
+                <i class="menu-icon tf-icons bx bx-detail"></i>
+                <div data-i18n="Analytics">Memo</div>
+              </a>
+            </li>
+
+            <li class="menu-item ">
+              <a href="" onclick="window.open('http://hr.unoye.com/san/continue.aspx?emp='+enc , '_blank');"  class="menu-link">
+                <i class="menu-icon tf-icons bx bx-detail"></i>
+                <div data-i18n="Analytics">Sanction</div>
+              </a>
+            </li>
+
+            <li class="menu-item ">
+              <a href="" onclick="window.open('http://hr.unoye.com/lo2/continue.aspx?emp='+enc , '_blank');"  class="menu-link">
+                <i class="menu-icon tf-icons bx bx-detail"></i>
+                <div data-i18n="Analytics">Loan</div>
+              </a>
+            </li>
+
+
+            <li class="menu-item ">
+              <a href="" onclick="window.open('http://inventory.unoye.com/API/api/continue?emp='+enc , '_blank');" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-detail"></i>
+                <div data-i18n="Analytics">Inventory</div>
+              </a>
+            </li>
+
+
+
           </ul>
         </aside>
         <!-- / Menu -->
@@ -293,7 +384,7 @@
                                 src="assets/img/unoye.png"
                                 alt="chart success"
                                 class="rounded"
-                                height="119px"
+                                height="100px"
                               />
                             <!-- </div> -->
                           </div>                    
@@ -616,5 +707,33 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
+    <script>
+      var enc = "";
+         function loaddata() {
+ 
+             var dataobject = {};
+             dataobject.email = "1";
+ 
+             $.ajax({
+                 url: "stafflogin.aspx/get_link",
+                 type: 'POST',
+                 data: JSON.stringify(dataobject),
+                 contentType: "application/json;charset=utf-8",
+                 success: function (objwithd) {				
+                     $.each(objwithd.d, function (index, obj) {   if(enc.length < 1){enc = obj.link.split("=")[1];} });
+                     $('#loaderGif').hide();						
+                     $('#dynamicMenu').css("display","block");			
+                 },
+                 error: function () {
+                 },
+             });
+         }
+ 
+         $(document).ready(function () {
+             loaddata();
+         });
+     </script>
   </body>
 </html>
